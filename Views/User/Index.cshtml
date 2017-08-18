@@ -1,0 +1,53 @@
+@model Auctions.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Login/Registration";
+}
+<h1>Please Log In</h1>
+<h3>If you're new to the site, please register below</h3>
+<div class="regPage">
+    <h3>Login</h3>
+    <p style="color: red">@ViewBag.loginError</p>
+    <form asp-controller="User" asp-action="Login" method="POST">
+        Username: <input type='text' name='Username'><br>
+        <br>
+        Password: <input type='text' name='Password'><br>
+        <br>
+        <input type="submit" value="Login" class="button">
+    </form>
+</div>
+
+<div class="regPage">    
+    <h3>Register</h3>
+    <p style="color: red">@ViewBag.existsError</p>
+    <form asp-controller="User" asp-action="Register" method="POST">
+        
+        <span asp-validation-for="Username"></span><br>
+        <label asp-for="Username"></label><br>
+        <input asp-for="Username"><br>
+        <br>
+
+        <span asp-validation-for="Password"></span><br>
+        <label asp-for="Password"></label><br>
+        <input type="password" asp-for="Password"><br>
+        <br>
+
+        <span asp-validation-for="PWConfirm"></span><br>
+        <label asp-for="PWConfirm"></label><br>
+        <input type = "password" asp-for="PWConfirm"><br>
+        <br>
+
+        <span asp-validation-for="FirstName"></span><br>
+        <label asp-for="FirstName"></label><br>
+        <input asp-for="FirstName"><br>
+        <br>
+
+        <span asp-validation-for="LastName"></span><br>
+        <label asp-for="LastName"></label><br>
+        <input asp-for="LastName"><br>
+        <br>
+
+        <input type="submit" value="Register" class="button">
+    </form>
+    <br>
+</div>

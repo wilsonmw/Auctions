@@ -1,0 +1,21 @@
+/*Write all of your CSS here*/
+span{
+    color: red;
+}
+
+h1, h2, h3, p{
+    text-align: center;
+}
+form{
+    text-align: center;
+}
+th, tr, td{
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+table{
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-left: 40%;
+}

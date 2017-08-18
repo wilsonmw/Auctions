@@ -1,0 +1,24 @@
+<h1>@ViewBag.currentAuction.Product</h1>
+<h3>Created by: @ViewBag.Owner.Username</h3>
+<h3>Time Remaining: @ViewBag.currentAuction.DaysLeft days</h3>
+<p>@ViewBag.currentAuction.Description</p>
+<h3>Current Highest Bid:
+    @{if (ViewBag.currentTopBid != null){
+        <h3>$@ViewBag.currentTopBid.Amount</h3>
+    }
+    else{
+        <h3>$0.00</h3>
+    }}
+<h3> By: @ViewBag.TopBidder</h3>
+<h3>Starting Bid: $@ViewBag.currentAuction.StartingBid</h3>
+
+
+<form action="/newBid" method="POST">
+    <input type="number" name="bid" placeholder="Enter Your Bid Here">
+    <input type="hidden" name="userID" value="@ViewBag.currentUser.UserID">
+    <input type="hidden" name="productID" value="@ViewBag.currentAuction.AuctionID">
+    <input type="submit" value="Bid!">
+</form>
+<br><br>
+<a href = "/allAuctions">Home</a>
+<a href = "/logout">Logout</a>

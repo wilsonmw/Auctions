@@ -1,0 +1,32 @@
+<h1>Current Auctions</h1>
+<h3>Hi @ViewBag.currentUser.Username</h3>
+<a href = "/allAuctions">Home</a>
+<a href = "/logout">Logout</a>
+
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Seller</th>
+        <th>Top Bid</th>
+        <th>Time Remaining</th>
+        <th></th>
+    </tr>
+    @{foreach (var product in @ViewBag.AllAuctions){
+        <tr>
+            <td><a href="/product/@product.AuctionID">@product.Product</a></td>
+            <td>@product.User.Username</td>
+            <td>$@product.TopBid</td>
+            <td>@product.DaysLeft Days</td>
+            @if (@product.UserID == @ViewBag.currentUser.UserID){
+                <td><a href="/delete/@product.AuctionID">Delete</a></td>}
+        </tr>
+    }}
+</table>
+
+
+
+<form action="/create" method="GET">
+    <input type='submit' value="New Auction">
+</form>
+
+<h2>Your Current Wallet: $@ViewBag.currentUser.Wallet</h2>
